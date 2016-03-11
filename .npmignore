@@ -1,7 +1,8 @@
-# ingnore all files...
-*.*
-
-!package.json
-!README.md
-!LICENSE
-!dist/*
+# ingnore files...
+.idea/
+src/
+typings/
+node_modules/
+gulpfile.js
+tsconfig.json
+typings.json

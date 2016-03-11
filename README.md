@@ -1,5 +1,5 @@
 ## Install
-npm install redux-injectable-angular2 --save
+npm install angular2-redux-inject --save
 
 ## Example Usage (TS/ES6)
 
@@ -7,15 +7,15 @@ npm install redux-injectable-angular2 --save
 import { Injector } from 'angular2/core';
 
 import { applyMiddleware, createStore } from 'redux';
-import { injectable } from 'redux-injectable-angular2';
+import { injector as injectorMiddleware } from 'angular2-redux-inject';
 
 // Create a separate injector or root injector
 let injector: Injector = Injector.resolveAndCreate([..some_providers]);
 
 // Create a composition from middlewaries...
-// Important: "reduxInjectable" must always be the first
+// Important: "injectorMiddleware" must always be the first
 let middleware = compose(
-    applyMiddleware(injectable(injector)),
+    applyMiddleware(injectorMiddleware(injector)),
     // ...etc
 );
 
@@ -23,9 +23,7 @@ let middleware = compose(
 let store = createStore(reducer, {}, middleware);
 ```
 
-After being applied, all action creators will be able to return a "dependency wrapper" function which will be supplied dependencies by name. 
-The wrapper's return value will be passed to the next middleware via next(). 
-Therefore, the signature of an action creator for such a function would look like this:
+Action creator would look like this:
 
 ```typescript
 import { Dep1Service, Dep2Service } from 'myapp/services';
@@ -33,7 +31,7 @@ import { Dep1Service, Dep2Service } from 'myapp/services';
 const createFooAction = (payload) => {
     return {
         deps: [Dep1Service, Dep2Service],
-        resolve: (dep1: Dep1Service, dep2: Dep2Service) => {
+        injectable: (dep1: Dep1Service, dep2: Dep2Service) => {
               // ...use dep1... 
               // ...use dep2... 
               
