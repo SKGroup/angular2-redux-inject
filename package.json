@@ -1,0 +1,49 @@
+{
+  "name": "angular2-redux-inject",
+  "version": "0.1.0",
+  "description": "Redux middleware generator that allows dependencies to be injected into action creators",
+  "main": "./dist/injector.js",
+  "typings": "./dist/injector.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/SKGroup/angular2-redux-inject.git"
+  },
+  "keywords": [
+    "dependency injection",
+    "redux",
+    "angular2",
+    "angular",
+    "injectable",
+    "injector"
+  ],
+  "author": "Stanislav Kiryukhin <korsar.zn@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SKGroup/angular2-redux-inject/issues"
+  },
+  "homepage": "https://github.com/SKGroup/angular2-redux-inject#readme",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.9",
+    "es6-promise": "^3.1.2",
+    "es6-shim": "^0.33.13",
+    "redux": "^3.3.1",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-beta.2",
+    "zone.js": "^0.5.15"
+  },
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-header": "^1.7.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.12.1",
+    "gulp-uglify": "^1.5.3",
+    "merge2": "^1.0.1",
+    "typescript": "^1.8.7"
+  }
+}
